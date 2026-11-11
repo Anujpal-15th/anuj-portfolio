@@ -9,7 +9,7 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Archivo:wdth,wght@62..125,500..900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=Archivo:wdth,wght@62..125,500..900&display=swap">
   <link rel="stylesheet" href="../styles.css">
   <script src="../main.js" defer></script>
 </head>
@@ -38,39 +38,75 @@
   <main class="gutter">
     <div class="shell">
       <h1 class="page-title rise"><span>/</span>work.</h1>
-      <p class="page-sub rise" style="animation-delay:.06s">Selected things I've built.</p>
-      <div class="grid">
-        <article class="item rise" style="animation-delay:.10s">
-          <div class="mark"><b style="color:#2D4FA8;--w:92">CodeSense</b></div>
-          <div class="meta"><span class="nm">CodeSense AI</span><span class="what">Runs code in Docker sandboxes and replays it step by step.</span><a href="https://codesense-ai-phi.vercel.app" target="_blank" rel="noopener">codesense-ai-phi.vercel.app</a></div>
-        </article>
-        <article class="item rise" style="animation-delay:.14s">
-          <div class="mark"><b style="color:#A86A16;--w:80">store/</b></div>
-          <div class="meta"><span class="nm">E-commerce platform</span><span class="what">Freelance client. Optimistic locking, JWT, verified payments.</span><span class="priv">Client code · private</span></div>
-        </article>
-        <article class="item rise" style="animation-delay:.18s">
-          <div class="mark"><b style="color:#2E7656;--w:104">MentorLens</b></div>
-          <div class="meta"><span class="nm">MentorLens</span><span class="what">Final-year team project. Finds where your code diverges.</span><a href="https://github.com/Anujpal-15th/mentorlens" target="_blank" rel="noopener">github.com/…/mentorlens</a></div>
-        </article>
-        <article class="item rise" style="animation-delay:.22s">
-          <div class="mark"><b style="color:#7E479F;--w:88">resolve.mcp</b></div>
-          <div class="meta"><span class="nm">Resolve Creative Editor</span><span class="what">MCP server: Claude edits DaVinci Resolve projects.</span><a href="https://github.com/Anujpal-15th/resolve-creative-editor-mcp" target="_blank" rel="noopener">github.com/…/resolve-mcp</a></div>
-        </article>
-        <article class="item rise" style="animation-delay:.26s">
-          <div class="mark"><b style="color:#28678F;--w:76">clean:</b></div>
-          <div class="meta"><span class="nm">Storage Cleaner</span><span class="what">Windows app that labels what's safe to delete.</span><a href="https://github.com/Anujpal-15th/storage-cleaner" target="_blank" rel="noopener">github.com/…/storage-cleaner</a></div>
-        </article>
-        <article class="item rise" style="animation-delay:.30s">
-          <div class="mark"><b style="color:#86592F;--w:96">study.cafe</b></div>
-          <div class="meta"><span class="nm">Virtual Study Cafe</span><span class="what">Django study rooms with WebRTC video. Edunet × EY program.</span><a href="https://github.com/Anujpal-15th/virtual-study-cafe" target="_blank" rel="noopener">github.com/…/virtual-study-cafe</a></div>
-        </article>
-        <article class="item rise" style="animation-delay:.34s">
-          <div class="mark"><b style="color:#4A4CB8;--w:100">learn.it</b></div>
-          <div class="meta"><span class="nm">Learn.it</span><span class="what">Guided roadmaps for Java and AI engineers.</span><a href="https://learn-it-roan.vercel.app" target="_blank" rel="noopener">learn-it-roan.vercel.app</a></div>
-        </article>
-      </div>
+      <p class="page-sub rise" style="animation-delay:.06s">What I've built, split honestly by who wrote the code.</p>
+
+      <section class="group" aria-labelledby="g-eng">
+        <div class="group-head">
+          <h2 id="g-eng">Engineering work</h2>
+          <p>Code I wrote and can walk you through line by line.</p>
+          <span class="count" aria-hidden="true">04</span>
+        </div>
+        <div class="grid">
+          <article class="item">
+            <div class="mark"><b style="color:#2D4FA8;--w:92">CodeSense</b></div>
+            <div class="meta"><span class="tag">Personal · Live</span><span class="nm">CodeSense AI</span><span class="what">Runs Java and Python in Docker sandboxes and replays the execution step by step.</span><a href="https://codesense-ai-phi.vercel.app" target="_blank" rel="noopener">codesense-ai-phi.vercel.app</a></div>
+          </article>
+          <article class="item">
+            <div class="mark"><b style="color:#A86A16;--w:80">store/</b></div>
+            <div class="meta"><span class="tag">Freelance · Client</span><span class="nm">E-commerce platform</span><span class="what">Spring Boot backend with optimistic locking, JWT and server-verified payments.</span><span class="priv">Client code · private</span></div>
+          </article>
+          <article class="item">
+            <div class="mark"><b style="color:#2E7656;--w:104">MentorLens</b></div>
+            <div class="meta"><span class="tag">Final-year · Team · AI-assisted</span><span class="nm">MentorLens</span><span class="what">Finds the first step where your code diverges from a correct solution. I write code on it alongside AI tools.</span><a href="https://github.com/Anujpal-15th/mentorlens" target="_blank" rel="noopener">github.com/…/mentorlens</a></div>
+          </article>
+          <article class="item">
+            <div class="mark"><b style="color:#86592F;--w:96">study.cafe</b></div>
+            <div class="meta"><span class="tag">Edunet × EY program</span><span class="nm">Virtual Study Cafe</span><span class="what">Django study rooms with WebSocket chat and WebRTC video. Where I learned Django.</span><a href="https://github.com/Anujpal-15th/virtual-study-cafe" target="_blank" rel="noopener">github.com/…/virtual-study-cafe</a></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="group vibe" aria-labelledby="g-vibe">
+        <div class="group-head">
+          <h2 id="g-vibe">Vibe coded</h2>
+          <p>Built end to end with AI tools. I came up with the idea, directed the build and tested it; the AI wrote most of the code.</p>
+          <span class="count" aria-hidden="true">07</span>
+        </div>
+        <div class="grid">
+          <article class="item">
+            <div class="mark"><b style="color:#2B6A7C;--w:90">hummingtide</b></div>
+            <div class="meta"><span class="nm">Hummingtide</span><span class="what">Mood-music streaming app for Android and web: study, focus, sleep, lo-fi.</span><span class="priv">Private repo</span></div>
+          </article>
+          <article class="item">
+            <div class="mark"><b style="color:#7E479F;--w:88">resolve.mcp</b></div>
+            <div class="meta"><span class="nm">Resolve Creative Editor</span><span class="what">MCP server that lets Claude edit DaVinci Resolve projects.</span><a href="https://github.com/Anujpal-15th/resolve-creative-editor-mcp" target="_blank" rel="noopener">github.com/…/resolve-mcp</a></div>
+          </article>
+          <article class="item">
+            <div class="mark"><b style="color:#9A3E5C;--w:110">lyric//vid</b></div>
+            <div class="meta"><span class="nm">Lyric Video Engine</span><span class="what">Audio analysis and lyric alignment into kinetic-typography videos with Remotion.</span><span class="priv">Private repo</span></div>
+          </article>
+          <article class="item">
+            <div class="mark"><b style="color:#28678F;--w:76">clean:</b></div>
+            <div class="meta"><span class="nm">Storage Cleaner</span><span class="what">Windows app that labels what's safe to delete.</span><a href="https://github.com/Anujpal-15th/storage-cleaner" target="_blank" rel="noopener">github.com/…/storage-cleaner</a></div>
+          </article>
+          <article class="item">
+            <div class="mark"><b style="color:#4A4CB8;--w:100">learn.it</b></div>
+            <div class="meta"><span class="nm">Learn.it</span><span class="what">Guided roadmaps for Java and AI engineers.</span><a href="https://learn-it-roan.vercel.app" target="_blank" rel="noopener">learn-it-roan.vercel.app</a></div>
+          </article>
+          <article class="item">
+            <div class="mark"><b style="color:#5B5E9E;--w:84">static.fm</b></div>
+            <div class="meta"><span class="nm">Static Sessions</span><span class="what">Nostalgia radio with English and Hindi playlists.</span><a href="https://radio-mu-five.vercel.app" target="_blank" rel="noopener">radio-mu-five.vercel.app</a></div>
+          </article>
+          <article class="item">
+            <div class="mark"><b style="color:#A3472E;--w:118">tribute</b></div>
+            <div class="meta"><span class="nm">One Piece fan page</span><span class="what">Scroll-animated fan tribute page, made for fun.</span><span class="priv">Private repo</span></div>
+          </article>
+        </div>
+      </section>
     </div>
   </main>
+
+  <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>Java</span><span>Spring Boot</span><span>PostgreSQL</span><span>Docker</span><span>Hibernate</span><span>JUnit</span><span>GitHub Actions</span><span>Azure</span></div></div>
 
   <footer class="gutter" id="contact">
     <div class="shell">

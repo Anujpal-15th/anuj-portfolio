@@ -12,7 +12,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Archivo:wdth,wght@62..125,500..900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..800&family=Archivo:wdth,wght@62..125,500..900&display=swap">
   <link rel="stylesheet" href="styles.css">
   <script src="main.js" defer></script>
 </head>
@@ -42,15 +42,17 @@
     <div class="shell">
       <section class="read">
         <p class="eyebrow rise">Hey, I'm Anuj</p>
-        <h1 class="headline rise" style="animation-delay:.08s">A Java Backend Developer <em>building services that stay correct under load.</em></h1>
+        <h1 class="headline" data-split>A Java Backend Developer <em>building services that stay correct under load.</em></h1>
         <p class="rise" style="animation-delay:.16s">I'm a final-year B.Tech Computer Science (AI &amp; ML) student at AKTU, graduating in August 2027. I build backends with <strong>Java, Spring Boot, PostgreSQL and Docker</strong>, and I ship them through CI.</p>
         <p class="rise" style="animation-delay:.22s">My main project, <a href="https://codesense-ai-phi.vercel.app" target="_blank" rel="noopener">CodeSense AI</a>, runs Java and Python code inside locked-down Docker containers and replays the execution step by step. It traces real execution with JDI and sys.settrace, and it's live on Azure and Vercel.</p>
         <p class="rise" style="animation-delay:.28s">For a freelance client, I built an e-commerce platform where two buyers can never take the last item. It uses optimistic locking, atomic conditional updates, server-verified payments, and JUnit tests running in CI.</p>
-        <p class="rise" style="animation-delay:.34s">Outside of backend work, I edit videos. So I built an MCP server that lets Claude edit a real DaVinci Resolve project alongside me.</p>
+        <p class="rise" style="animation-delay:.34s">Outside of backend work, I edit videos and love music, and I vibe-code tools for both with AI: a mood-music app, a lyric video engine, and an MCP server that lets Claude edit DaVinci Resolve. They're kept separate from my engineering work on the <a href="work/">work page</a>.</p>
         <a class="cta rise" style="animation-delay:.4s" href="#contact">Contact me <span class="arr" aria-hidden="true">↗</span></a>
       </section>
     </div>
   </main>
+
+  <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>Java</span><span>Spring Boot</span><span>PostgreSQL</span><span>Docker</span><span>Hibernate</span><span>JUnit</span><span>GitHub Actions</span><span>Azure</span></div></div>
 
   <footer class="gutter" id="contact">
     <div class="shell">

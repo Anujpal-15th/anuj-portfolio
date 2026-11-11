@@ -1,1 +1,5 @@
 .claude/
+# local drafts and clones, not part of the site
+prof/
+vsc/
+portfolio-*.html

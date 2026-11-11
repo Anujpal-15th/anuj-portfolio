@@ -1,22 +1,28 @@
+/* Palette "ink & signal": cool indigo-tinted neutrals, one indigo-blue accent for meaning
+   (links, emphasis), one warm amber used sparingly as its split-complement (logo dot, footer).
+   All text pairs pass WCAG AA; amber on light paper is decoration only. */
 :root {
-  --bg: #F4F3FC;
+  --bg: #F7F7FA;
   --card: #FFFFFF;
-  --tile: #F7F6FD;
-  --ink: #2E2C3A;
-  --muted: #6A6780;
-  --accent: #4B33C9;
-  --line: #E4E1F3;
-  --foot: #2B1A5C;
-  --foot-ink: #CFE38A;
-  --foot-muted: #B9B0DA;
+  --tile: #F1F2F7;
+  --ink: #15171F;
+  --muted: #555A69;
+  --eyebrow: #6B7080;
+  --accent: #2F45D0;
+  --amber: #E09A2E;
+  --line: #E3E5EE;
+  --foot: #121733;
+  --foot-ink: #F4BC62;
+  --foot-muted: #A9B0CC;
   --sans: "Inter", "Segoe UI", system-ui, sans-serif;
   --display: "Archivo", "Inter", Arial, sans-serif;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #12111C; --card: #1A1828; --tile: #161424; --ink: #E7E5F2; --muted: #9D99B5; --accent: #A898FF; --line: #2A2740;
-    --foot: #1F1446; --foot-ink: #CFE38A; --foot-muted: #A59CCB;
+    --bg: #0E1016; --card: #161922; --tile: #12151D; --ink: #E9EBF1; --muted: #A3A8B6; --eyebrow: #8A90A0;
+    --accent: #93A2FF; --amber: #F4BC62; --line: #252A37;
+    --foot: #0B0F22; --foot-ink: #F4BC62; --foot-muted: #A9B0CC;
     color-scheme: dark;
   }
 }
@@ -32,10 +38,10 @@ a { color: var(--accent); text-decoration: none; }
 header { padding-block: 40px 0; }
 header .shell { display: flex; justify-content: space-between; align-items: center; }
 .logo { font-family: var(--display); font-variation-settings: "wdth" 96, "wght" 800; font-size: 1.7rem; color: var(--accent); letter-spacing: -0.02em; line-height: 1; display: inline-flex; align-items: baseline; }
-.logo i { display: inline-block; width: 0.32em; height: 0.32em; border-radius: 50%; background: var(--accent); margin-left: 2px; transition: transform .4s cubic-bezier(.3,1.6,.5,1); }
+.logo i { display: inline-block; width: 0.32em; height: 0.32em; border-radius: 50%; background: var(--amber); margin-left: 2px; transition: transform .4s cubic-bezier(.3,1.6,.5,1); }
 .logo:hover i { transform: translateY(-0.5em); }
 .burger { width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: grid; place-content: center; gap: 7px; position: relative; z-index: 12; }
-.burger span { display: block; height: 2px; background: var(--accent); border-radius: 2px; transition: transform .35s ease, width .35s ease; }
+.burger span { display: block; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .35s ease, width .35s ease; }
 .burger span:first-child { width: 30px; }
 .burger span:last-child { width: 22px; justify-self: end; }
 .burger[aria-expanded="true"] span:first-child { transform: translateY(4.5px) rotate(45deg); width: 26px; }
@@ -49,7 +55,7 @@ header .shell { display: flex; justify-content: space-between; align-items: cent
   width: min(290px, calc(100vw - 32px));
   background: var(--card); border: 1px solid var(--line); border-radius: 4px;
   padding: 76px 40px 36px;
-  box-shadow: 0 24px 60px -24px rgba(43, 26, 92, 0.25);
+  box-shadow: 0 24px 60px -24px rgba(18, 23, 51, 0.18);
   transform-origin: top right; transform: scale(0.92); opacity: 0; visibility: hidden;
   transition: transform .3s cubic-bezier(.2,.8,.2,1), opacity .2s ease, visibility 0s .3s;
 }
@@ -62,11 +68,15 @@ header .shell { display: flex; justify-content: space-between; align-items: cent
 /* home */
 main { padding-block: 72px 120px; }
 .read { max-width: 760px; margin: 0 auto; padding-left: clamp(0px, 4vw, 24px); }
-.eyebrow { font-size: 0.82rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin: 0 0 22px; }
+.eyebrow { font-size: 0.82rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--eyebrow); margin: 0 0 22px; }
+.eyebrow::before { content: ""; display: inline-block; width: 18px; height: 2px; background: var(--amber); vertical-align: middle; margin-right: 10px; }
 h1.headline { font-weight: 500; font-size: clamp(1.6rem, 3.6vw, 2.15rem); line-height: 1.3; letter-spacing: -0.01em; margin: 0 0 40px; text-wrap: balance; }
 h1.headline em { font-style: normal; color: var(--accent); }
 .read p { margin: 0 0 24px; color: var(--muted); max-width: 66ch; }
 .read p strong { color: var(--ink); font-weight: 600; }
+/* body links get an underline so they never read as the headline's emphasis colour */
+.read p a { color: var(--ink); font-weight: 500; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.read p a:hover { color: var(--accent); }
 .cta { display: inline-flex; gap: 6px; align-items: center; margin-top: 18px; font-size: 1.05rem; padding-bottom: 3px; background: linear-gradient(var(--accent), var(--accent)) left bottom / 100% 2px no-repeat; transition: background-size .35s ease; }
 .cta:hover { background-size: 0% 2px; background-position: right bottom; }
 .cta .arr { display: inline-block; transition: transform .3s ease; }
@@ -78,7 +88,7 @@ h1.headline em { font-style: normal; color: var(--accent); }
 .page-sub { text-align: center; color: var(--muted); font-size: 0.95rem; margin: 0 0 48px; }
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 940px; margin: 0 auto; }
 .item { background: var(--card); border-radius: 2px; overflow: hidden; display: flex; flex-direction: column; transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease; }
-.item:hover { transform: translateY(-4px); box-shadow: 0 22px 40px -26px rgba(43, 26, 92, 0.35); }
+.item:hover { transform: translateY(-4px); box-shadow: 0 22px 40px -26px rgba(18, 23, 51, 0.28); }
 .mark { background: var(--tile); aspect-ratio: 16 / 8; display: grid; place-items: center; }
 .mark b { font-family: var(--display); font-size: clamp(1.3rem, 2.4vw, 1.75rem); letter-spacing: -0.02em; font-variation-settings: "wdth" var(--w, 100), "wght" 800; transition: font-variation-settings .5s ease; }
 .item:hover .mark b { font-variation-settings: "wdth" 120, "wght" 900; }
@@ -104,7 +114,8 @@ footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 /* entrance */
 .rise { animation: rise .8s cubic-bezier(.2,.8,.2,1) both; }
-@keyframes rise { from { transform: translateY(14px); opacity: .001; } }
+/* motion only, never hides text: if an animation stalls, the page still reads at full contrast */
+@keyframes rise { from { transform: translateY(14px); } }
 @media (prefers-reduced-motion: reduce) {
   .rise { animation: none; }
   *, *::before, *::after { transition: none !important; }

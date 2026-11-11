@@ -17,6 +17,7 @@
   <script src="main.js" defer></script>
 </head>
 <body>
+  <div class="progress" aria-hidden="true"></div>
   <header class="gutter">
     <div class="shell">
       <a class="logo" href="./" aria-label="Anuj Pal, home">anuj<i aria-hidden="true"></i></a>
@@ -28,6 +29,7 @@
     <ul>
       <li><a href="work/">My Work</a></li>
       <li><a href="https://github.com/Anujpal-15th" target="_blank" rel="noopener">My GitHub</a></li>
+      <li><a href="assets/Anuj-Pal-Resume.pdf" target="_blank" rel="noopener">My Résumé</a></li>
       <li><a href="https://codesense-ai-phi.vercel.app" target="_blank" rel="noopener">CodeSense (live)</a></li>
     </ul>
     <p class="lbl">Say hello</p>
@@ -35,6 +37,7 @@
     <div class="socials">
       <a href="https://github.com/Anujpal-15th" target="_blank" rel="noopener">GH</a>
       <a href="https://www.linkedin.com/in/anuj-pal-15th/" target="_blank" rel="noopener">LN</a>
+      <a href="https://leetcode.com/Anuj_15th" target="_blank" rel="noopener">LC</a>
     </div>
   </nav>
 
@@ -47,7 +50,10 @@
         <p class="rise" style="animation-delay:.22s">My main project, <a href="https://codesense-ai-phi.vercel.app" target="_blank" rel="noopener">CodeSense AI</a>, runs Java and Python code inside locked-down Docker containers and replays the execution step by step. It traces real execution with JDI and sys.settrace, and it's live on Azure and Vercel.</p>
         <p class="rise" style="animation-delay:.28s">For a freelance client, I built an e-commerce platform where two buyers can never take the last item. It uses optimistic locking, atomic conditional updates, server-verified payments, and JUnit tests running in CI.</p>
         <p class="rise" style="animation-delay:.34s">Outside of backend work, I edit videos and love music, and I vibe-code tools for both with AI: a mood-music app, a lyric video engine, and an MCP server that lets Claude edit DaVinci Resolve. They're kept separate from my engineering work on the <a href="work/">work page</a>.</p>
-        <a class="cta rise" style="animation-delay:.4s" href="#contact">Contact me <span class="arr" aria-hidden="true">↗</span></a>
+        <div class="cta-row rise" style="animation-delay:.4s">
+          <a class="cta magnetic" href="#contact">Contact me <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="cta ghost magnetic" href="assets/Anuj-Pal-Resume.pdf" target="_blank" rel="noopener">Résumé <span class="arr" aria-hidden="true">↓</span></a>
+        </div>
       </section>
     </div>
   </main>
@@ -56,6 +62,7 @@
 
   <footer class="gutter" id="contact">
     <div class="shell">
+      <p class="foot-big" aria-hidden="true">Let's build something <span>reliable</span>.</p>
       <div class="foot-top">
         <div>
           <p class="lbl">Say hello</p>
@@ -67,6 +74,7 @@
         <ul class="links">
           <li><a href="work/">My Work</a></li>
           <li><a href="https://github.com/Anujpal-15th" target="_blank" rel="noopener">My GitHub</a></li>
+      <li><a href="assets/Anuj-Pal-Resume.pdf" target="_blank" rel="noopener">My Résumé</a></li>
           <li><a href="https://codesense-ai-phi.vercel.app" target="_blank" rel="noopener">CodeSense (live)</a></li>
         </ul>
       </div>
@@ -75,6 +83,7 @@
         <nav aria-label="Profiles">
           <a href="https://github.com/Anujpal-15th" target="_blank" rel="noopener">GH</a>
           <a href="https://www.linkedin.com/in/anuj-pal-15th/" target="_blank" rel="noopener">LN</a>
+      <a href="https://leetcode.com/Anuj_15th" target="_blank" rel="noopener">LC</a>
         </nav>
       </div>
     </div>

@@ -142,6 +142,45 @@ h1.headline em {
 .eyebrow::before { animation: grow .8s cubic-bezier(.2,.8,.2,1) backwards; }
 @keyframes grow { from { width: 0; } }
 
+/* home CTAs */
+.cta-row { display: flex; flex-wrap: wrap; gap: 28px; align-items: center; margin-top: 18px; }
+.cta-row .cta { margin-top: 0; }
+.cta.ghost { color: var(--ink); background-image: linear-gradient(var(--line), var(--line)); }
+.cta.ghost:hover { color: var(--accent); }
+.magnetic { transition: translate .35s cubic-bezier(.2,.8,.2,1), background-size .35s ease; }
+
+/* smooth fade between home and /work in browsers that support it */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: vt-out .22s ease both; }
+::view-transition-new(root) { animation: vt-in .38s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes vt-out { to { opacity: 0; translate: 0 -8px; } }
+@keyframes vt-in { from { opacity: 0; translate: 0 12px; } }
+
+/* reading progress: a thin amber line along the top, driven by scroll position */
+.progress { position: fixed; z-index: 20; top: env(safe-area-inset-top, 0px); left: 0; right: 0; height: 3px; background: var(--amber); transform-origin: left; transform: scaleX(0); }
+@supports (animation-timeline: scroll()) {
+  .progress { animation: fill-x linear both; animation-timeline: scroll(root); }
+  @keyframes fill-x { to { transform: scaleX(1); } }
+}
+@supports not (animation-timeline: scroll()) { .progress { display: none; } }
+
+/* logo letters hop in a wave on hover */
+.logo .l { display: inline-block; }
+.logo:hover .l { animation: hop .5s cubic-bezier(.3,1.6,.5,1) calc(var(--i) * 45ms); }
+@keyframes hop { 40% { translate: 0 -0.22em; } }
+
+/* footer headline stretches wider as it scrolls into view */
+.foot-big {
+  margin: 0 0 72px; font-family: var(--display); line-height: .95; letter-spacing: -0.02em;
+  font-size: clamp(2.2rem, 7vw, 5.4rem); color: #E9E6F2;
+  font-variation-settings: "wdth" 125, "wght" 800; text-wrap: balance;
+}
+.foot-big span { color: var(--foot-ink); }
+@supports (animation-timeline: view()) {
+  .foot-big { animation: stretch linear both; animation-timeline: view(); animation-range: entry 10% cover 45%; }
+  @keyframes stretch { from { font-variation-settings: "wdth" 62, "wght" 250; } }
+}
+
 /* ticker band: tech stack scrolls slowly, leans with scroll speed */
 .ticker { overflow: hidden; border-top: 1px solid var(--line); padding-block: 26px; background: var(--bg); }
 .ticker-track { display: flex; width: max-content; animation: ticker 48s linear infinite; transform: skewX(var(--skew, 0deg)); }
@@ -168,6 +207,7 @@ footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
 /* motion only, never hides text: if an animation stalls, the page still reads at full contrast */
 @keyframes rise { from { transform: translateY(14px); } }
 @media (prefers-reduced-motion: reduce) {
-  .rise, .headline .w, h1.headline em, .eyebrow::before, .ticker-track { animation: none; }
+  .rise, .headline .w, h1.headline em, .eyebrow::before, .ticker-track, .foot-big, .logo .l { animation: none !important; }
+  @view-transition { navigation: none; }
   *, *::before, *::after { transition: none !important; }
 }

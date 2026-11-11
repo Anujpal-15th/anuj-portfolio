@@ -16,15 +16,7 @@
   --foot-muted: #A9B0CC;
   --sans: "Inter", "Segoe UI", system-ui, sans-serif;
   --display: "Archivo", "Inter", Arial, sans-serif;
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0E1016; --card: #161922; --tile: #12151D; --ink: #E9EBF1; --muted: #A3A8B6; --eyebrow: #8A90A0;
-    --accent: #93A2FF; --amber: #F4BC62; --line: #252A37;
-    --foot: #0B0F22; --foot-ink: #F4BC62; --foot-muted: #A9B0CC;
-    color-scheme: dark;
-  }
+  color-scheme: light only; /* light-only by design: no dark theme, and browsers shouldn't auto-darken it */
 }
 
 * { box-sizing: border-box; }

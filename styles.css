@@ -1,26 +1,35 @@
-/* Palette "ink & signal": cool indigo-tinted neutrals, one indigo-blue accent for meaning
-   (links, emphasis), one warm amber used sparingly as its split-complement (logo dot, footer).
-   All text pairs pass WCAG AA; amber on light paper is decoration only. */
+/* Palette "paper & ink", tuned for long reading without eye strain:
+   - paper is a soft off-white (#F9F8F5), not pure white, so large areas don't glare;
+   - text is dark graphite (14.5:1), not pure black (21:1), which halos on bright screens;
+   - body text sits at 8:1 (AAA), the accent at 7:1 (AAA), so nothing is faint;
+   - one calm cobalt for meaning, a muted amber only as decoration, nothing neon. */
 :root {
-  --bg: #F7F7FA;
+  --bg: #F9F8F5;
   --card: #FFFFFF;
-  --tile: #F1F2F7;
-  --ink: #15171F;
-  --muted: #555A69;
-  --eyebrow: #6B7080;
-  --accent: #2F45D0;
-  --amber: #E09A2E;
-  --line: #E3E5EE;
-  --foot: #121733;
-  --foot-ink: #F4BC62;
-  --foot-muted: #A9B0CC;
+  --tile: #F2F1EC;
+  --ink: #22252B;
+  --muted: #474C56;
+  --eyebrow: #676C76;
+  --accent: #2D4FA8;
+  --amber: #C98A2B;
+  --line: #E7E5DF;
+  --foot: #1C2133;
+  --foot-ink: #F0B866;
+  --foot-muted: #AEB4C4;
   --sans: "Inter", "Segoe UI", system-ui, sans-serif;
   --display: "Archivo", "Inter", Arial, sans-serif;
   color-scheme: light only; /* light-only by design: no dark theme, and browsers shouldn't auto-darken it */
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 1rem; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+/* Type: Inter with optical sizing; tailed l and serifed I so l, I and 1 never look alike */
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--sans); font-size: 1.0625rem; line-height: 1.75;
+  font-optical-sizing: auto; font-feature-settings: "cv05", "cv08";
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+@media (min-width: 900px) { body { font-size: 1.125rem; } }
 a { color: var(--accent); text-decoration: none; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 .gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
@@ -60,34 +69,34 @@ header .shell { display: flex; justify-content: space-between; align-items: cent
 /* home */
 main { padding-block: 72px 120px; }
 .read { max-width: 760px; margin: 0 auto; padding-left: clamp(0px, 4vw, 24px); }
-.eyebrow { font-size: 0.82rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--eyebrow); margin: 0 0 22px; }
+.eyebrow { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--eyebrow); margin: 0 0 22px; }
 .eyebrow::before { content: ""; display: inline-block; width: 18px; height: 2px; background: var(--amber); vertical-align: middle; margin-right: 10px; }
-h1.headline { font-weight: 500; font-size: clamp(1.6rem, 3.6vw, 2.15rem); line-height: 1.3; letter-spacing: -0.01em; margin: 0 0 40px; text-wrap: balance; }
-h1.headline em { font-style: normal; color: var(--accent); }
-.read p { margin: 0 0 24px; color: var(--muted); max-width: 66ch; }
+h1.headline { font-weight: 600; font-size: clamp(1.75rem, 3.9vw, 2.5rem); line-height: 1.22; letter-spacing: -0.025em; margin: 0 0 44px; text-wrap: balance; }
+h1.headline em { font-style: normal; font-weight: 500; color: var(--accent); }
+.read p { margin: 0 0 1.35em; color: var(--muted); max-width: 64ch; text-wrap: pretty; }
 .read p strong { color: var(--ink); font-weight: 600; }
 /* body links get an underline so they never read as the headline's emphasis colour */
 .read p a { color: var(--ink); font-weight: 500; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
 .read p a:hover { color: var(--accent); }
-.cta { display: inline-flex; gap: 6px; align-items: center; margin-top: 18px; font-size: 1.05rem; padding-bottom: 3px; background: linear-gradient(var(--accent), var(--accent)) left bottom / 100% 2px no-repeat; transition: background-size .35s ease; }
+.cta { display: inline-flex; gap: 6px; align-items: center; margin-top: 18px; font-size: 1.05rem; font-weight: 500; padding-bottom: 3px; background: linear-gradient(var(--accent), var(--accent)) left bottom / 100% 2px no-repeat; transition: background-size .35s ease; }
 .cta:hover { background-size: 0% 2px; background-position: right bottom; }
 .cta .arr { display: inline-block; transition: transform .3s ease; }
 .cta:hover .arr { transform: translate(3px, -3px); }
 
 /* work */
-.page-title { text-align: center; margin: 0 0 6px; font-weight: 600; font-size: 1.7rem; letter-spacing: -0.01em; }
+.page-title { text-align: center; margin: 0 0 6px; font-weight: 600; font-size: clamp(1.75rem, 3.4vw, 2.25rem); letter-spacing: -0.025em; }
 .page-title span { color: var(--muted); font-weight: 500; }
 .page-sub { text-align: center; color: var(--muted); font-size: 0.95rem; margin: 0 0 48px; }
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 940px; margin: 0 auto; }
-.item { background: var(--card); border-radius: 2px; overflow: hidden; display: flex; flex-direction: column; transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease; }
+.item { background: var(--card); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease; }
 .item:hover { transform: translateY(-4px); box-shadow: 0 22px 40px -26px rgba(18, 23, 51, 0.28); }
 .mark { background: var(--tile); aspect-ratio: 16 / 8; display: grid; place-items: center; }
 .mark b { font-family: var(--display); font-size: clamp(1.3rem, 2.4vw, 1.75rem); letter-spacing: -0.02em; font-variation-settings: "wdth" var(--w, 100), "wght" 800; transition: font-variation-settings .5s ease; }
 .item:hover .mark b { font-variation-settings: "wdth" 120, "wght" 900; }
 .meta { padding: 20px 28px 24px; display: grid; gap: 2px; }
-.meta .nm { font-weight: 600; font-size: 0.9rem; }
-.meta .what { font-size: 0.82rem; color: var(--muted); line-height: 1.5; margin: 4px 0 6px; }
-.meta a, .meta .priv { font-size: 0.9rem; overflow-wrap: anywhere; }
+.meta .nm { font-weight: 600; font-size: 0.95rem; }
+.meta .what { font-size: 0.875rem; color: var(--muted); line-height: 1.55; margin: 4px 0 8px; }
+.meta a, .meta .priv { font-size: 0.875rem; font-weight: 500; overflow-wrap: anywhere; }
 .meta .priv { color: var(--muted); }
 @media (max-width: 860px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
